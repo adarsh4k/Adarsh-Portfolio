@@ -13,6 +13,7 @@ import Freelancing from "./components/Freelancing";
 import Hackathons from "./components/Hackathons";
 import OpenSource from "./components/OpenSource";
 import Footer from "./components/Footer";
+import Experience from "./components/Experience";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/skills" element={<Skills />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/achievements" element={<Achievements />} />
+        <Route path="/experience" element={<Experience />} />
         
         <Route path="/contact" element={<Contact />} />
         <Route path="/resume" element={<Resume />} />

@@ -1,14 +1,24 @@
 import React from "react";
-import { motion } from "framer-motion"; // For animations
+import { motion } from "framer-motion";
+import Codathon from "../assets/Codathon.jpg";
 
 const achievements = [
   {
     title: "🥇 First Prize - Codathon",
     description: "Won first prize in the Codathon event conducted by Jeppiaar University.",
+    image: "/images/codathon.jpg", // Your Codathon photo
   },
   {
-    title: "🏆 Class Topper",
-    description: "Secured the top position in my class with excellent academic performance.",
+    title: "🤖 Be10x AI Tools Workshop",
+    description: "Completed an advanced AI tools workshop, gaining hands-on experience in AI-driven automation.",
+  },
+  {
+    title: "🛠️ JavaScript Projects - Great Learning",
+    description: "Built multiple JavaScript projects, demonstrating strong frontend and problem-solving skills.",
+  },
+  {
+    title: "🏆 L&T IT Primer Certification",
+    description: "Earned certification for completing the IT Primer Course, covering key IT industry insights.",
   },
   {
     title: "💻 Google Developer Program",
@@ -22,31 +32,48 @@ const achievements = [
 
 const Achievements = () => {
   return (
-    <section id="achievements" className="py-20 bg-gradient-to-br from-gray-100 to-gray-300">
+    <section id="achievements" className="py-20 bg-black">
       <div className="container mx-auto px-6">
         
         {/* Animated Heading */}
         <motion.h2 
-          className="text-4xl font-extrabold text-center text-gray-900 mb-10"
+          className="text-5xl font-extrabold text-center mb-12 text-transparent bg-clip-text 
+                     bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-300 shadow-xl"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Achievements & <span className="bg-gradient-to-r from-purple-600 to-indigo-600 text-transparent bg-clip-text">Certifications</span>
+          Achievements & <span className="text-cyan-300">Certifications</span>
         </motion.h2>
 
         {/* Achievements Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
           {achievements.map((achievement, index) => (
             <motion.div
               key={index}
-              className="bg-white shadow-lg rounded-xl p-6 border-l-4 border-indigo-500 hover:shadow-2xl transition duration-300"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              className="relative group bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl shadow-lg 
+                         border border-gray-700 backdrop-blur-lg transition-all duration-300 
+                         hover:scale-105 hover:border-cyan-400 hover:shadow-cyan-500/50"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <h3 className="text-xl font-bold text-indigo-700">{achievement.title}</h3>
-              <p className="text-gray-700 mt-2">{achievement.description}</p>
+              {/* Codathon Photo */}
+              {achievement.image && (
+                <img 
+                  src={Codathon} 
+                  alt="Codathon Winner"
+                  className="w-full h-48 object-cover rounded-lg mb-4 border border-gray-600 
+                             shadow-lg transition-all duration-300 group-hover:shadow-cyan-500/50"
+                />
+              )}
+
+              <h3 className="text-2xl font-bold text-cyan-300">{achievement.title}</h3>
+              <p className="text-gray-300 mt-2 leading-relaxed">{achievement.description}</p>
+
+              {/* Subtle neon glow effect */}
+              <div className="absolute inset-0 rounded-2xl border border-gray-600 opacity-10 
+                              group-hover:opacity-50 transition-opacity duration-500"></div>
             </motion.div>
           ))}
         </div>
@@ -56,22 +83,3 @@ const Achievements = () => {
 };
 
 export default Achievements;
-
-
-
-/*import React from "react";
-
-const Achievements = () => {
-  return (
-    <section id="achievements" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Achievements & Certifications</h2>
-        <p className="text-lg text-gray-700 text-center">
-          Here are some of my achievements and certifications.
-        </p>
-      </div>
-    </section>
-  );
-};
-
-export default Achievements;*/
